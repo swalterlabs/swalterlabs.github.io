@@ -129,6 +129,9 @@ function setLanguage(language) {
   document.documentElement.lang = language;
   document.title = content["page.title"];
   document.querySelector('meta[name="description"]').content = content["page.description"];
+  document.querySelector('meta[property="og:title"]').content = content["page.title"];
+  document.querySelector('meta[property="og:description"]').content = content["page.description"];
+  document.querySelector('meta[property="og:locale"]').content = language === "de" ? "de_DE" : "en_US";
 
   document.querySelectorAll("[data-i18n]").forEach(element => {
     element.textContent = content[element.dataset.i18n];
